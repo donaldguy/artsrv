@@ -8,6 +8,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+//DownloadHandler expects a URL param id and returns a plain-text response containing the correspoding art
 func DownloadHandler(c *gin.Context) {
 	id := c.Param("id")
 	resBody, err := art.Get(id)

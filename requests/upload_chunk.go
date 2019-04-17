@@ -2,19 +2,20 @@ package requests
 
 import (
 	"net/http"
-	"strconv"
 
 	"github.com/donaldguy/artsrv/art"
 
 	"github.com/gin-gonic/gin"
 )
 
+//UploadChunkBody represents the expected JSON body of a chunked upload request
 type UploadChunkBody struct {
 	ID   int    `json:"id"  binding:"exists"` // See: https://github.com/gin-gonic/gin/issues/491
 	Size int    `json:"size"`
 	Data string `json:"data" binding:"required"`
 }
 
+//UploadChunkHandler expects a URL id param and handles the saving of a previously registered image with the same id
 func UploadChunkHandler(c *gin.Context) {
 	id := c.Param("id")
 	var reqBody UploadChunkBody
@@ -29,7 +30,7 @@ func UploadChunkHandler(c *gin.Context) {
 		return
 	}
 
-	if err := art.SubmitChunk(id, strconv.Itoa(reqBody.ID), reqBody.Data); err != nil {
+	if err := art.SubmitChunk(id, reqBody.ID, reqBody.Data); err != nil {
 		switch err {
 		case art.ErrNotRegistered:
 			jsonResponseFromCodeAndMessage(c, http.StatusNotFound, err.Error())

@@ -3,3 +3,4 @@ Instructions.md
 art.db
 artsrv
 Dockerfile
+Makefile
