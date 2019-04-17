@@ -18,6 +18,14 @@
   version = "v1.3.2"
 
 [[projects]]
+  digest = "1:4e65420ca90a2c87b051b44ac6583971d9d23f405c536a3e5323edc9f4a46f91"
+  name = "github.com/gin-contrib/logger"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "0b3d4131bf19ad686caa625663ac1797f8bbdc70"
+  version = "v0.0.1"
+
+[[projects]]
   branch = "master"
   digest = "1:a4b5a6b32f33323c7850fae4ec085a0fbac3be93c057b6b8cef5bcabe24645ac"
   name = "github.com/gin-contrib/sse"
@@ -135,6 +143,19 @@
   revision = "8368d24ba045f26503eb745b624d930cbe214c79"
 
 [[projects]]
+  digest = "1:e30b5c6d83a83f1369fa92f0e279ab8046e9ee7fa2d71360956e910f44072ffb"
+  name = "github.com/rs/zerolog"
+  packages = [
+    ".",
+    "internal/cbor",
+    "internal/json",
+    "log",
+  ]
+  pruneopts = "UT"
+  revision = "651d361cfeb9d0f5b9f1d14b162c66c82509ef6d"
+  version = "v1.13.0"
+
+[[projects]]
   digest = "1:d0072748c62defde1ad99dde77f6ffce492a0e5aea9204077e497c7edfb86653"
   name = "github.com/ugorji/go"
   packages = ["codec"]
@@ -212,8 +233,11 @@
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
+    "github.com/gin-contrib/logger",
     "github.com/gin-gonic/gin",
     "github.com/prometheus/client_golang/prometheus",
+    "github.com/rs/zerolog",
+    "github.com/rs/zerolog/log",
     "github.com/xyproto/pinterface",
     "github.com/xyproto/simplebolt",
     "go.opencensus.io/exporter/prometheus",

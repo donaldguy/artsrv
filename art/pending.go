@@ -3,8 +3,9 @@ package art
 import (
 	"errors"
 	"fmt"
-	"log"
 	"strconv"
+
+	"github.com/rs/zerolog/log"
 )
 
 var (
@@ -82,7 +83,7 @@ func SubmitChunk(id string, chunkID int, chunk string) error {
 		// it doesn't exist; everything is good
 	} else if err == nil {
 		if oldChunk == chunk {
-			log.Printf("Warning: Redundant submission of chunk")
+			log.Warn().Msg("Redundant submission of chunk")
 		} else {
 			return ErrChunkAlreadySubmitted
 		}
