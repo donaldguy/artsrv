@@ -9,3 +9,7 @@
 [[constraint]]
   name = "github.com/xyproto/simplebolt"
   version = "3.4.0"
+
+[[constraint]]
+  name = "go.opencensus.io"
+  version = "0.20.2"
