@@ -13,4 +13,7 @@ else
 	testbins/ascii_$(shell uname -s | tr '[:upper:]' '[:lower:]')_x64
 endif
 
-.PHONY: running_image image test
+logs:
+	docker logs -f donaldguyartsrv
+
+.PHONY: running_image image test logs
